@@ -1,0 +1,17 @@
+name: myenv
+channels:
+  - defaults
+  - conda-forge
+  - pytorch
+dependencies:
+  - python=3.8
+  - numpy
+  - pytorch
+  - joblib
+  - medmnist
+  - scikit-learn
+  - matplotlib
+  - pip
+  - pip:
+    - medmnist # if medmnist needs to be installed via pip
+    
