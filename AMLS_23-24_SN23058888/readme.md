@@ -19,7 +19,9 @@ This project focuses on the application of machine learning models for medical i
 3. Optionally, set the `retrain` flag to `True` if you want to retrain the model, or `False` to use a pre-trained model.
 
 ## Requirements
-This project requires the following packages:
+
+To run this project, your environment need to include Python 3.8 and several packages. The `environment.yml` file in this repository lists all the necessary dependencies.
+The project requires the following packages:
 - numpy
 - torch
 - joblib
