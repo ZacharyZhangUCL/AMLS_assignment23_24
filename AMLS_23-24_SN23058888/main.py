@@ -22,11 +22,11 @@ def get_data(task:str):
     # Get the full path to the current file
     file_path = os.path.abspath(__file__)
     root_path = os.path.dirname(file_path)
-
+    
     datasets_path = os.path.join(root_path, "Datasets")
     dataset_task_path = os.path.join(datasets_path, dataset)
 
-    # If it doesn't exist, create a directory
+    # 如果不存在，则创建目录
     if not os.path.exists(dataset_task_path):
         os.makedirs(dataset_task_path)
     
@@ -57,7 +57,7 @@ if __name__ == "__main__":
 
     if task == "A" and model == "SVM":
         # Train and Valid
-        if retrain == True:
+        if retrain == True or not os.path.exists('A/A_SVM_model.joblib'):
             model_A_SVM = A_SVM_training(train_images, train_labels, val_images, val_labels)
         else:
             model_A_SVM = joblib.load('A/A_SVM_model.joblib')
@@ -66,7 +66,7 @@ if __name__ == "__main__":
 
     elif task == "A" and model == "CNN":
         # Train and Valid
-        if retrain == True:
+        if retrain == True or not os.path.exists('A/A_CNN_model.pth'):
             model_A_CNN = A_CNN_training(train_images, train_labels, val_images, val_labels)
         else:
             model_A_CNN = torch.load('A/A_CNN_model.pth')
@@ -75,7 +75,7 @@ if __name__ == "__main__":
     
     elif task == "B" and model == "Random Forest":
         # Train and Valid
-        if retrain == True:
+        if retrain == True or not os.path.exists('B/B_RandomForest_model.joblib'):
             model_B_RandomForest = B_RandomForest_training(train_images, train_labels, val_images, val_labels)
         else:
             model_B_RandomForest = joblib.load('B/B_RandomForest_model.joblib')
@@ -84,7 +84,7 @@ if __name__ == "__main__":
 
     elif task == "B" and model == "CNN":
         # Train and Valid
-        if retrain == True:
+        if retrain == True or not os.path.exists('B/B_CNN_model.pth'):
             model_B_CNN = B_CNN_training(train_images, train_labels, val_images, val_labels)
         else:
             model_B_CNN = torch.load('B/B_CNN_model.pth')
